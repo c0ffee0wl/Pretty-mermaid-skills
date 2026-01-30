@@ -2,6 +2,12 @@
 
 # Pretty-Mermaid Skills
 
+![fLEWT5x.png](https://iili.io/fLEWT5x.png)
+
+将 Mermaid 图表渲染为精美的 SVG 或 ASCII 艺术
+
+极速、全主题支持、零 DOM 依赖。为 AI 而生。
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14-brightgreen)](https://nodejs.org/)
 [![GitHub stars](https://img.shields.io/github/stars/imxv/Pretty-mermaid-skills?style=social)](https://github.com/imxv/Pretty-mermaid-skills)
