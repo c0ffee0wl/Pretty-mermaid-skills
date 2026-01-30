@@ -1,3 +1,5 @@
+<div align="center">
+
 # Pretty-Mermaid Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -5,6 +7,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/imxv/Pretty-mermaid-skills?style=social)](https://github.com/imxv/Pretty-mermaid-skills)
 
 **English** ｜ [中文](README_CN.md)
+
+</div>
 
 ## Introduction
 A Mermaid diagram rendering skill for AI, supporting both SVG and ASCII output formats to make your documentation more vivid.

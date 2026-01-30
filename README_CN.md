@@ -1,3 +1,5 @@
+<div align="center">
+
 # Pretty-Mermaid Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -5,6 +7,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/imxv/Pretty-mermaid-skills?style=social)](https://github.com/imxv/Pretty-mermaid-skills)
 
 **中文** | [English](README.md)
+
+</div>
 
 ## 简介
 为 AI 提供的 Mermaid 图表渲染 Skill，支持 SVG 和 ASCII 双格式输出，让您的文档更加生动。
