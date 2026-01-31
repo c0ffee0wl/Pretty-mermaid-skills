@@ -106,7 +106,7 @@ MIT License
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=imxv/Pretty-mermaid-skills&type=date&legend=top-left)](https://www.star-history.com/#imxv/Pretty-mermaid-skills&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=imxv/Pretty-mermaid-skills&type=timeline&legend=top-left)](https://www.star-history.com/#imxv/Pretty-mermaid-skills&type=timeline&legend=top-left)
 
 ## 🙏 致谢
 基于 [beautiful-mermaid](https://github.com/lukilabs/beautiful-mermaid) 项目
