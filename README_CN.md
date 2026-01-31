@@ -53,7 +53,7 @@
 
 ### 一键安装
 ```bash
-npx skills add https://github.com/imxv/preety-mermaid-skills --skill pretty-mermaid
+npx skills add https://github.com/imxv/pretty-mermaid-skills --skill pretty-mermaid
 ```
 
 ### 验证安装

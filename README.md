@@ -53,7 +53,7 @@ Seamlessly integrates with the following AI coding environments:
 
 ### One-click Install
 ```bash
-npx skills add https://github.com/imxv/preety-mermaid-skills --skill pretty-mermaid
+npx skills add https://github.com/imxv/pretty-mermaid-skills --skill pretty-mermaid
 ```
 
 ### Verify Installation
