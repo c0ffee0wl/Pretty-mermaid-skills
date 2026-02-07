@@ -38,6 +38,7 @@ All three scripts share a `loadBeautifulMermaid()` pattern that dynamically impo
 - **render.mjs** — Renders a single `.mmd` file. Supports SVG and ASCII formats, 15 named themes, custom color overrides (`--bg`, `--fg`, `--accent`, etc.), transparency, and font selection. Outputs to file or stdout.
 - **batch.mjs** — Discovers all `.mmd` files in an input directory and renders them in parallel batches using `Promise.allSettled()`. Worker count is configurable (`--workers`, default 4). Reports per-file success/failure.
 - **themes.mjs** — Prints all theme names from the `THEMES` object exported by `beautiful-mermaid`.
+- **postprocess.mjs** — Shared SVG post-processing module. Strips boundary `&quot;` entities leaked by `["..."]` bracket labels and converts encoded line breaks (`<br/>`, `\n`) into `<tspan>` elements with vertical centering. Imported by both `render.mjs` and `batch.mjs`.
 
 ### Key library API surface
 
@@ -50,6 +51,7 @@ From `beautiful-mermaid`, the scripts use:
 
 - `DIAGRAM_TYPES.md` — Mermaid syntax for all 5 supported types (flowchart, sequence, state, class, ER)
 - `THEMES.md` — Detailed theme descriptions and color palettes
+- `api_reference.md` — beautiful-mermaid API documentation (exports, options, defaults)
 
 ### Skill metadata
 
@@ -62,7 +64,7 @@ From `beautiful-mermaid`, the scripts use:
 - **Light:** zinc-light, tokyo-night-light, github-light, solarized-light, catppuccin-latte, nord-light
 - **Dark:** zinc-dark, tokyo-night, tokyo-night-storm, github-dark, solarized-dark, dracula, nord, catppuccin-mocha, one-dark
 
-Custom colors override themes when no `--theme` is specified.
+When `--theme` is specified it overrides all custom color flags. Custom colors are only used when no theme is selected.
 
 ## Conventions
 

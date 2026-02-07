@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from 'child_process';
-import { dirname, join, resolve } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { postProcessSvg } from './postprocess.mjs';
@@ -44,10 +44,14 @@ function parseArgs() {
     outputDir: null,
     format: 'svg',
     theme: null,
-    bg: null,
-    fg: null,
+    bg: '#FFFFFF',
+    fg: '#27272A',
+    font: 'Inter',
     transparent: false,
     useAscii: false,
+    paddingX: 5,
+    paddingY: 5,
+    boxBorderPadding: 1,
     workers: 4,
   };
 
@@ -62,8 +66,17 @@ function parseArgs() {
       case '--theme': case '-t': opts.theme = val; i++; break;
       case '--bg': opts.bg = val; i++; break;
       case '--fg': opts.fg = val; i++; break;
+      case '--line': opts.line = val; i++; break;
+      case '--accent': opts.accent = val; i++; break;
+      case '--muted': opts.muted = val; i++; break;
+      case '--surface': opts.surface = val; i++; break;
+      case '--border': opts.border = val; i++; break;
+      case '--font': opts.font = val; i++; break;
       case '--transparent': opts.transparent = true; break;
       case '--use-ascii': opts.useAscii = true; break;
+      case '--padding-x': opts.paddingX = parseInt(val); i++; break;
+      case '--padding-y': opts.paddingY = parseInt(val); i++; break;
+      case '--box-border-padding': opts.boxBorderPadding = parseInt(val); i++; break;
       case '--workers': case '-w': opts.workers = parseInt(val); i++; break;
       case '--help': case '-h':
         console.log(`Usage: node batch.mjs --input-dir <dir> --output-dir <dir> [options]
@@ -72,11 +85,20 @@ Options:
   -i, --input-dir <dir>    Input directory containing .mmd files [required]
   -o, --output-dir <dir>   Output directory for rendered files [required]
   -f, --format <fmt>       Output format: svg | ascii (default: svg)
-  -t, --theme <name>       Theme name (e.g. tokyo-night, dracula)
+  -t, --theme <name>       Theme name (overrides custom colors)
       --bg <hex>           Background color
       --fg <hex>           Foreground color
+      --line <hex>         Edge/connector color
+      --accent <hex>       Arrow heads and highlights color
+      --muted <hex>        Secondary text color
+      --surface <hex>      Node fill tint color
+      --border <hex>       Node stroke color
+      --font <name>        Font family (default: Inter)
       --transparent        Transparent background (SVG only)
       --use-ascii          Pure ASCII instead of Unicode (ASCII only)
+      --padding-x <n>      Horizontal spacing (ASCII only, default: 5)
+      --padding-y <n>      Vertical spacing (ASCII only, default: 5)
+      --box-border-padding <n>  Padding inside node boxes (ASCII only, default: 1)
   -w, --workers <n>        Parallel workers (default: 4)`);
         process.exit(0);
     }
@@ -106,17 +128,28 @@ async function renderFile(file, inputDir, outputDir, opts, lib) {
   const input = readFileSync(inputPath, 'utf8');
 
   if (opts.format === 'ascii') {
-    const ascii = renderMermaidAscii(input, { useAscii: opts.useAscii });
+    const ascii = renderMermaidAscii(input, {
+      useAscii: opts.useAscii,
+      paddingX: opts.paddingX,
+      paddingY: opts.paddingY,
+      boxBorderPadding: opts.boxBorderPadding,
+    });
     writeFileSync(outputPath, ascii);
   } else {
     const theme = opts.theme ? THEMES[opts.theme] : undefined;
     const colors = theme || {
-      ...(opts.bg && { bg: opts.bg }),
-      ...(opts.fg && { fg: opts.fg }),
+      bg: opts.bg,
+      fg: opts.fg,
+      ...(opts.line && { line: opts.line }),
+      ...(opts.accent && { accent: opts.accent }),
+      ...(opts.muted && { muted: opts.muted }),
+      ...(opts.surface && { surface: opts.surface }),
+      ...(opts.border && { border: opts.border }),
     };
 
     let svg = await renderMermaid(input, {
       ...colors,
+      font: opts.font,
       transparent: opts.transparent,
     });
     svg = postProcessSvg(svg);

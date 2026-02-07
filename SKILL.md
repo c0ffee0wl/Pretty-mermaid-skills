@@ -120,7 +120,7 @@ When user provides a `.mmd` file or Mermaid code block:
 
 ### Advanced Options
 
-**Custom Colors** (overrides theme):
+**Custom Colors** (used when no `--theme` is given):
 ```bash
 node scripts/render.mjs \
   --input diagram.mmd \
@@ -472,6 +472,7 @@ Executable Node.js scripts for rendering operations:
 - `render.mjs` - Main rendering script
 - `batch.mjs` - Batch processing script
 - `themes.mjs` - Theme listing utility
+- `postprocess.mjs` - SVG post-processing (quote stripping, line-break conversion)
 
 ### references/
 Documentation to inform diagram creation:

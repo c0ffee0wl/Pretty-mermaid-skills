@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from 'child_process';
-import { dirname, join, resolve } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { postProcessSvg } from './postprocess.mjs';
@@ -83,7 +83,7 @@ Options:
   -i, --input <file>       Input Mermaid file (.mmd) [required]
   -o, --output <file>      Output file (default: stdout)
   -f, --format <fmt>       Output format: svg | ascii (default: svg)
-  -t, --theme <name>       Theme name (e.g. tokyo-night, dracula)
+  -t, --theme <name>       Theme name (overrides custom colors)
       --bg <hex>           Background color
       --fg <hex>           Foreground color
       --line <hex>         Edge/connector color
