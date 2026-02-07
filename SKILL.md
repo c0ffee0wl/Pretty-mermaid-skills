@@ -27,7 +27,7 @@ node scripts/render.mjs \
   --input diagram.mmd \
   --output diagram.svg \
   --format svg \
-  --theme tokyo-night
+  --theme github-light
 ```
 
 **From user-provided Mermaid code:**
@@ -69,8 +69,8 @@ node scripts/render.mjs \
 - **ASCII** (terminal, logs, plain text) → `--format ascii`
 
 **Step 3: Select theme**
-- **Dark mode docs** → `tokyo-night` (recommended)
-- **Light mode docs** → `github-light`
+- **Light mode docs** → `github-light` (recommended)
+- **Dark mode docs** → `tokyo-night`
 - **Vibrant colors** → `dracula`
 - **See all themes** → Run `node scripts/themes.mjs`
 
@@ -95,7 +95,7 @@ When user provides a `.mmd` file or Mermaid code block:
    node scripts/render.mjs \
      --input diagram.mmd \
      --output diagram.svg \
-     --theme tokyo-night
+     --theme github-light
    ```
 
 3. **Verify output**:
@@ -169,7 +169,7 @@ cp assets/example_diagrams/flowchart.mmd my-workflow.mmd
 node scripts/render.mjs \
   --input my-workflow.mmd \
   --output my-workflow.svg \
-  --theme github-dark
+  --theme github-light
 ```
 
 ### Diagram Type Reference
@@ -236,7 +236,7 @@ EOF
 node scripts/render.mjs \
   --input user-diagram.mmd \
   --output preview.svg \
-  --theme tokyo-night
+  --theme github-light
 
 # Review with user, edit diagram.mmd if needed, re-render
 ```
@@ -277,13 +277,13 @@ Total: 15 themes
 ### Theme Selection Guide
 
 **For dark mode documentation:**
-- `tokyo-night` ⭐ - Modern, developer-friendly
+- `tokyo-night` - Modern, developer-friendly
 - `github-dark` - Familiar GitHub style
 - `dracula` - Vibrant, high contrast
 - `nord` - Cool, minimalist
 
 **For light mode documentation:**
-- `github-light` - Clean, professional
+- `github-light` ⭐ - Clean, professional
 - `zinc-light` - High contrast, printable
 - `catppuccin-latte` - Warm, friendly
 
@@ -295,7 +295,7 @@ Total: 15 themes
 node scripts/render.mjs \
   --input diagram.mmd \
   --output themed.svg \
-  --theme tokyo-night
+  --theme github-light
 ```
 
 ### Compare Themes
@@ -330,7 +330,7 @@ node scripts/batch.mjs \
   --input-dir ./diagrams \
   --output-dir ./rendered \
   --format svg \
-  --theme tokyo-night \
+  --theme github-light \
   --workers 4
 ```
 
@@ -396,7 +396,7 @@ node scripts/render.mjs \
 node scripts/render.mjs \
   --input api-flow.mmd \
   --output api-sequence.svg \
-  --theme tokyo-night
+  --theme github-light
 ```
 
 ### 3. Database Schema Visualization
@@ -497,7 +497,7 @@ Template files for quick diagram creation:
 - Use ASCII for quick previews
 
 ### Quality
-- Use `tokyo-night` or `github-dark` for technical docs
+- Use `github-light` or `github-dark` for technical docs
 - Add transparency for dark/light mode compatibility: `--transparent`
 - Test theme in target environment before batch rendering
 

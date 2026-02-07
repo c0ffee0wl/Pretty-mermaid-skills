@@ -12,7 +12,6 @@ Ultra-fast, fully themeable, zero DOM dependencies. Built for the AI era.
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14-brightgreen)](https://nodejs.org/)
 [![GitHub stars](https://img.shields.io/github/stars/imxv/Pretty-mermaid-skills?style=social)](https://github.com/imxv/Pretty-mermaid-skills)
 
-**English** ｜ [中文](README_CN.md)
 
 </div>
 
@@ -32,8 +31,8 @@ A Mermaid diagram rendering skill for AI, supporting both SVG and ASCII output f
 | :--- | :--- | :--- |
 | zinc-light | zinc-dark | nord |
 | tokyo-night-light | tokyo-night | nord-light |
-| cappuccin-latte | tokyo-night-storm | dracula |
-| github-light | cappuccin-mocha | one-dark |
+| catppuccin-latte | tokyo-night-storm | dracula |
+| github-light | catppuccin-mocha | one-dark |
 | solarized-light | github-dark | |
 | | solarized-dark | |
 

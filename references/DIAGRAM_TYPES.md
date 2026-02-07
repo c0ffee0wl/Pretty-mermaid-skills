@@ -300,7 +300,7 @@ erDiagram
 - Use `tokyo-night` for dark mode documentation
 - Use `github-light` for light mode documentation
 - Use `dracula` for vibrant, colorful diagrams
-- Use `monokai` for code-centric diagrams
+- Use `one-dark` for code-centric diagrams
 
 ### Performance
 - Keep diagrams under 50 nodes for fast rendering
