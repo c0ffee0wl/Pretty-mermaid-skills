@@ -4,6 +4,7 @@ import { execSync } from 'child_process';
 import { dirname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { postProcessSvg } from './postprocess.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const skillRoot = join(__dirname, '..');
@@ -143,11 +144,12 @@ async function main() {
       ...(opts.border && { border: opts.border }),
     };
 
-    const svg = await renderMermaid(input, {
+    let svg = await renderMermaid(input, {
       ...colors,
       font: opts.font,
       transparent: opts.transparent,
     });
+    svg = postProcessSvg(svg);
 
     if (opts.output) {
       writeFileSync(opts.output, svg);

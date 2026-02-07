@@ -507,6 +507,12 @@ Template files for quick diagram creation:
 3. Apply theme last
 4. Render both SVG (docs) and ASCII (README) if needed
 
+### Node Label Syntax Notes
+- Quoted bracket labels `["..."]` render correctly — boundary quotes are stripped automatically
+- Use `<br/>` in labels to create line breaks (e.g. `A["Line 1<br/>Line 2"]`)
+- `\n` also produces line breaks, but `<br/>` is the preferred syntax
+- Multi-line labels are vertically centered within the node
+
 ### Accessibility
 - Use high-contrast themes for presentations
 - Add text labels to all connections
